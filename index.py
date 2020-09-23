@@ -1,4 +1,5 @@
 from requests_html import HTML, HTMLSession
+from bs4 import BeautifulSoup
 
 # path = 'https://www.newegg.com/global/ph-en/p/pl?d=x570' 
 # path_1 = 'https://www.lazada.com.ph/catalog/?spm=a2o4l.home.search.3.4107359dZNdpAW&q=2080%20ti&_keyori=ss&from=search_history&sugg=2080%20ti_2_1'
@@ -13,6 +14,10 @@ r = session.get(path_5).html
 
 r.render()
 print(r.text)
+
+soup = BeautifulSoup(r.html.html, 'lxml')
+
+
 #match = r.find('div.c5TXIP')
 #print(match[0].text)
 
